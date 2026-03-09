@@ -1,7 +1,5 @@
-from src.masks.masks import get_mask_account
-from src.masks.masks import get_mask_card_number
-from src.widget import get_date
-from src.widget import mask_account_card
+from src.masks.masks import get_mask_account, get_mask_card_number
+from src.widget import get_date, mask_account_card
 
 
 def main() -> None:
