@@ -32,7 +32,7 @@ def get_mask_account(account_number: int) -> str:
     account_str = str(account_number).replace(" ", "")
     if not account_str.isdigit():
         return "Ошибка"
-    if len(account_str) > 4 :
+    if len(account_str) > 4:
         return f"**{account_str[-4:]}"
     else:
         return "Ошибка"

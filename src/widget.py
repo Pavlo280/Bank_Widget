@@ -43,10 +43,10 @@ def get_date(date_string: str) -> str:
     if not date_string:
         return "Ошибка"
     try:
-        date_part = date_string.split('T')[0]
+        date_part = date_string.split("T")[0]
         if not date_part:
             return "Ошибка"
-        parts = date_part.split('-')
+        parts = date_part.split("-")
         if len(parts) != 3:
             return "Ошибка"
         year, month, day = parts
