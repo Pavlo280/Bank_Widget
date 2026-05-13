@@ -17,6 +17,8 @@ mypy = "^1.8.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.15.5"
+pytest-cov = "^7.1.0"
+autotyping = "^24.9.0"
 
 [tool.black]
 line-length = 119
@@ -31,6 +33,10 @@ disallow_untyped_defs = true
 warn_return_any = true
 exclude = ["venv"]
 mypy_path = "."
+
+[tool.mypy.overrides]
+module = "tests.*"
+disallow_untyped_defs = false
 
 [build-system]
 requires = ["poetry-core"]
