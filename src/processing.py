@@ -5,7 +5,8 @@
 from typing import List
 
 
-def filter_by_state(transactions: List[dict], state: str = "EXECUTED") -> List[dict]:
+def filter_by_state(transactions: List[dict],
+                    state: str = "EXECUTED") -> List[dict]:
     return [t for t in transactions if t.get("state") == state]
 
 

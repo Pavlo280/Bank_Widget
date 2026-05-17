@@ -51,5 +51,5 @@ def card_number_generator(start, stop):
         card = str(number).zfill(16)
 
         # Разбиваем на группы по 4
-        formatted = f"{card[0:4]} " f"{card[4:8]} " f"{card[8:12]} " f"{card[12:16]}"
+        formatted = f"{card[0:4]} {card[4:8]} {card[8:12]} {card[12:16]}"
         yield formatted

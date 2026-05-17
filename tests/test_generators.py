@@ -2,31 +2,44 @@ import pytest
 
 import src.masks.generators
 
+
 # фикстура transactions_with_currency берётся из conftest.py
 
 
 def test_filter_by_currency_usd(transactions_with_currency):
-    result = list(src.masks.generators.filter_by_currency(transactions_with_currency, "USD"))
+    result = list(
+        src.masks.generators.filter_by_currency(transactions_with_currency,
+                                                "USD")
+    )
     assert len(result) == 2
 
 
 def test_filter_by_currency_rub(transactions_with_currency):
-    result = list(src.masks.generators.filter_by_currency(transactions_with_currency, "RUB"))
+    result = list(
+        src.masks.generators.filter_by_currency(transactions_with_currency,
+                                                "RUB")
+    )
     assert len(result) == 1
 
 
 def test_filter_by_currency_no_match(transactions_with_currency):
-    result = list(src.masks.generators.filter_by_currency(transactions_with_currency, "EUR"))
+    result = list(
+        src.masks.generators.filter_by_currency(transactions_with_currency,
+                                                "EUR")
+    )
     assert result == []
 
 
 def test_filter_by_currency_empty():
-    result = list(src.masks.generators.filter_by_currency([], "USD"))
+    result = list(src.masks.generators.filter_by_currency([],
+                                                          "USD"))
     assert result == []
 
 
 def test_transaction_descriptions(transactions_with_currency):
-    descriptions = src.masks.generators.transaction_descriptions(transactions_with_currency)
+    descriptions = src.masks.generators.transaction_descriptions(
+        transactions_with_currency
+    )
     assert next(descriptions) == "Перевод организации"
     assert next(descriptions) == "Перевод со счета на счет"
     assert next(descriptions) == "Перевод с карты на карту"
