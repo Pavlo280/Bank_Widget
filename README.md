@@ -31,3 +31,10 @@ result = filter_by_state(operations)
 from src.processing import sort_by_date
 
 result = sort_by_date(operations)
+
+## Тестирование
+Проект использует pytest для тестирования. Покрытие кода проверяется с помощью pytest-cov.
+
+### Запуск тестов:
+pytest
+poetry run pytest --cov
