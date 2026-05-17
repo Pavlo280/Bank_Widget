@@ -38,3 +38,11 @@ result = sort_by_date(operations)
 ### Запуск тестов:
 pytest
 poetry run pytest --cov
+
+## Модуль generators
+
+### filter_by_currency
+Фильтрует транзакции по валюте.
+```python
+usd = filter_by_currency(transactions, "USD")
+print(next(usd))
