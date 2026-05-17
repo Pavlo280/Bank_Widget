@@ -1,6 +1,7 @@
 import pytest
 
-from src.masks import get_mask_account, get_mask_card_number
+from src.masks import get_mask_account
+from src.masks import get_mask_card_number
 
 # def test_get_mask_card_number():
 #     number = '1246953785126548'
