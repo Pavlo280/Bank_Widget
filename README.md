@@ -46,3 +46,34 @@ poetry run pytest --cov
 ```python
 usd = filter_by_currency(transactions, "USD")
 print(next(usd))
+
+## Модуль decorators
+
+### log
+
+Декоратор для автоматического логирования вызовов функций.
+
+```python
+from src.decorators import log
+
+# Вывод в консоль
+@log
+def add(a, b):
+    return a + b
+
+add(2, 3)
+# add ok result: 5
+
+# Запись в файл
+@log(filename="app.log")
+def divide(x, y):
+    return x / y
+
+divide(10, 0)
+# В файл: divide error: ZeroDivisionError. Inputs: (10, 0), {}
+```
+
+**При успехе:** `<имя функции> ok result: <результат>`
+**При ошибке:** `<имя функции> error: <ТипОшибки>. Inputs: <args>, <kwargs>`
+
+Исключение после логирования **пробрасывается дальше** — декоратор не глушит ошибки.
