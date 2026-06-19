@@ -1,4 +1,4 @@
-"""Модуль содержит декоратор log для логирования вызовов функций."""
+﻿"""Модуль содержит декоратор log для логирования вызовов функций."""
 
 import functools
 from typing import Any
@@ -40,7 +40,7 @@ def log(
                 return result
             except Exception as e:
                 error_msg = (
-                    f"{fn.__name__} error: {type(e).__name__}."
+                    f"{fn.__name__} error: {type(e).__name__}: {e}."
                     f" Inputs: {args}, {kwargs}"
                 )
                 _write(error_msg, filename)

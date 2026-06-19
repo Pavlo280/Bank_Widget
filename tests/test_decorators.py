@@ -1,4 +1,4 @@
-"""Тесты для модуля src/decorators.py."""
+﻿"""Тесты для модуля src/decorators.py."""
 
 import pytest
 
@@ -42,6 +42,7 @@ def test_log_error_console(capsys: pytest.CaptureFixture) -> None:
 
     captured = capsys.readouterr()
     assert "fail_no_args error: ZeroDivisionError" in captured.out
+    assert "division by zero" in captured.out
     assert "Inputs:" in captured.out
 
 
@@ -120,6 +121,7 @@ def test_log_error_file(tmp_path: pytest.TempPathFactory) -> None:
 
     content = log_file.read_text(encoding="utf-8")
     assert "boom error: ValueError" in content
+    assert "bad input" in content
     assert "Inputs:" in content
     assert "42" in content
 
