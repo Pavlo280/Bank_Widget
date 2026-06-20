@@ -46,3 +46,34 @@ poetry run pytest --cov
 ```python
 usd = filter_by_currency(transactions, "USD")
 print(next(usd))
+```
+
+## Модуль utils — чтение JSON
+
+```python
+from src.utils import get_transactions
+
+transactions = get_transactions("data/operations.json")
+```
+
+Возвращает список транзакций. При отсутствии файла, невалидном JSON или
+если корень не является списком — возвращает `[]`.
+
+## Модуль external_api — конвертация валют
+
+Конвертирует сумму транзакции в рубли. Для USD/EUR обращается к
+Exchange Rates Data API (apilayer). Для RUB возвращает сумму без запроса.
+
+```python
+from src.external_api import convert_to_rub
+
+amount_rub = convert_to_rub(transaction)
+```
+
+Требует переменную окружения `EXCHANGE_RATES_API_KEY`. Скопируйте
+`.env.example` в `.env` и вставьте свой ключ:
+
+```bash
+cp .env.example .env
+# затем откройте .env и заполните EXCHANGE_RATES_API_KEY=ваш_ключ
+```
